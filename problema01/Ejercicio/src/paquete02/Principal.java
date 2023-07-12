@@ -7,6 +7,7 @@ package paquete02;
 
 import java.util.ArrayList;
 import paquete01.Televisor;
+import paquete03.VentasTvs;
 
 /**
  *
@@ -33,8 +34,11 @@ public class Principal {
         tvs.add(t2);
         tvs.add(t3);
         System.out.println("-----------------");
-        System.out.printf("%.2f\n", t1.totalPrecioTvs(tvs));
-        // System.out.printf("%s\n", t1.listaMarcasVendidas(tvs));
+        
+        VentasTvs tv = new VentasTvs();
+        
+        System.out.printf("%.2f\n", tv.totalPrecioTvs(tvs));
+        System.out.printf("%s\n", tv.listaMarcasVendidas(tvs));
 
     }
 }

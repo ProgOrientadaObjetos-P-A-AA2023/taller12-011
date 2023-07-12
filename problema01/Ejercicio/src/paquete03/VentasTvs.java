@@ -35,6 +35,39 @@ public class VentasTvs {
         
     }
     
+    public double totalPrecioTvs(ArrayList<Televisor> t){
+        double s = 0;
+        for (int i = 0; i < t.size(); i++) {
+            s = s + t.get(i).obtenerPrecio();
+            
+        }
+        return s;
+    }
+    
+    public double televisorMasCaro(ArrayList<Televisor> t){
+        double s = 0;
+        
+        for (int i = 0; i < t.size() - 1; i++) {
+            s = t.get(i).obtenerPrecio();
+            
+            if(s < t.get(i+1).obtenerPrecio() ){
+            
+                s = t.get(i+1).obtenerPrecio();
+            }
+            
+        }
+        
+        return s;
+    }
+    
+    public String listaMarcasVendidas(ArrayList<Televisor> t){
+        String s = "";
+        for (int i = 0; i < t.size(); i++) {
+            s = String.format("%s%s\n", s, t.get(i).obtenerMarca());
+        }
+        return s;
+    }
+    
     public double obtenerPrecioTotal(){
         return precioTotal;
     }

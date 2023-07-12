@@ -1,24 +1,59 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p1;
 
-/**
- *
- * @author reroes
- */
-public class MatriculaEscuela {
-    private double tarifa;
+import p2.Matricula;
+
+public class MatriculaEscuela extends Matricula{
     
-    public void establecerTarifa(){
-        // tarifa = costo libros + costo deportes + costo folletos + 
-        //          costo uniformes
-        tarifa = 50.2 + 40.2 + 140.2 + 200.4;
+    private double costoLibros;
+    private double costoDeportes;
+    private double costoFolletos;
+    private double costoUniformes;
+    
+    public MatriculaEscuela(double cL, double cD, double cF, double cU){
+    
+        costoLibros = cL;
+        costoDeportes = cD;
+        costoFolletos = cF;
+        costoUniformes = cU;
+    
     }
-        
-    public double obtenerTarifa(){
-        return tarifa;
+
+    public void establecerCostoLibros(double c) {
+        costoLibros = c;
     }
+
+    public void establecerCostoDeportes(double c) {
+        costoDeportes = c;
+    }
+
+    public void establecerCostoFolletos(double c) {
+        costoFolletos = c;
+    }
+
+    public void establecerCostoUniformes(double c) {
+        costoUniformes = c;
+    }
+    
+    @Override
+    public void calcularMatricula(){
+        matricula = costoLibros + costoDeportes + costoFolletos + 
+                costoUniformes;
+    }
+
+    public double obtenerCostoLibros() {
+        return costoLibros;
+    }
+
+    public double obtenerCostoDeportes() {
+        return costoDeportes;
+    }
+
+    public double obtenerCostoFolletos() {
+        return costoFolletos;
+    }
+
+    public double obtenerCostoUniformes() {
+        return costoUniformes;
+    }
+    
 }

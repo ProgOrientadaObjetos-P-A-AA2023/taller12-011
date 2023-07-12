@@ -5,12 +5,9 @@
  */
 package p3;
 
-import p1.MatriculaCampamento;
-import p1.MatriculaColegio;
-import p1.MatriculaEscuela;
-import p1.MatriculaJardin;
-import p1.MatriculaMaternal;
-import p2.TipoMatricula;
+import java.util.ArrayList;
+import p1.*;
+import p2.*;
 
 /**
  *
@@ -18,22 +15,44 @@ import p2.TipoMatricula;
  */
 public class Principal {
     public static void main(String[] args) {
+        
+        MatriculaCampamento mcamp = new MatriculaCampamento(100.2,30.2,
+                90.2);
+        
+        MatriculaColegio mcolegio = new MatriculaColegio(150.2,140.2, 
+                240.2, 300.4);
+        
+        MatriculaEscuela mescuela = new MatriculaEscuela(50.2, 40.2, 
+                140.2, 200.4);
+        
+        MatriculaJardin mjardin = new MatriculaJardin(50.2, 140.2, 40);
+        
+        MatriculaMaternal mmaternal = new MatriculaMaternal(50.2,40.2,
+                80.2);
+        MatriculaMaternal mmaternal2 = new MatriculaMaternal(55.2, 35.2, 
+                84.9);
+        
+        ArrayList<Matricula> lista = new ArrayList<>();
+        lista. add(mcamp);
+        lista. add(mcolegio);
+        lista. add(mescuela);
+        lista. add(mjardin);
+        lista. add(mmaternal);
+        lista. add(mmaternal2);
+        
+        for(Matricula m : lista){
+        
+            m.calcularMatricula();
+        
+        }
+        
         TipoMatricula tipos = new TipoMatricula();
+        tipos.establecerMatriculas(lista);
+        tipos.calcularPromedioMatriculas();
         
-        MatriculaCampamento mcamp = new MatriculaCampamento();
-        mcamp.establecerTarifa();
+        System.out.printf("Promedio de Matriculas: $%.2f\n", 
+                tipos.obtenerPromedioMatriculas());
         
-        MatriculaColegio mcolegio = new MatriculaColegio();
-        mcolegio.establecerTarifa();
-        
-        MatriculaEscuela mescuela = new MatriculaEscuela();
-        MatriculaJardin mjardin = new MatriculaJardin();
-        MatriculaMaternal mmaternal = new MatriculaMaternal();
-        MatriculaMaternal mmaternal2 = new MatriculaMaternal();
-        
-        tipos.establecerMatriculaCampamento(mcamp);
-        tipos.establecerMatriculaColegio(mcolegio);
-        tipos.establecerPromedioTarifas();
-        System.out.printf("%s\n", tipos);
     }
+    
 }
